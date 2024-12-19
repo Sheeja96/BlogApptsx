@@ -1,0 +1,56 @@
+ 
+.add-blog-page {
+    background: linear-gradient(135deg, #ffffff, #ffffff); 
+    min-height: 90vh;
+    padding-top: 50px;
+    
+   }
+  .blog-form-container {
+    background: #fdfbfa;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    
+  }
+  
+   
+  .h4 {
+    color: #222b56;  
+  }
+  
+  .blog-form-container button {
+    background-color: #684141;  
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .blog-form-container button:hover {
+    background-color: #af4f4f;  
+  }
+  
+  
+  .Reg{
+    background: linear-gradient(135deg, #388849cb, #5858aaa8); 
+    min-height: 90vh;
+  }
+  .Login{
+    background: linear-gradient(135deg, #388849cb, #5858aaa8); 
+    min-height: 90vh;
+  }
+  .EditBlog .updatebtn {
+    background-color: #684141;  
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .EditBlog .updatebtn:hover {
+    background-color: #af4f4f;  
+  }
