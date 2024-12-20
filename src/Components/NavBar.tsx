@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      {(location.pathname !== '/') && (location.pathname !== '/login') && (
+      {(location.pathname !== '/') && (location.pathname !== '/register') && (
         <AppBar position="static" sx={{ backgroundColor: 'primary' }}>
           <Toolbar>
             <Typography
@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
             <Button color="inherit" component={Link} to="/dashboard">
               Dashboard
             </Button>
-            <Button color="inherit" component={Link} to="/login">
+            <Button color="inherit" component={Link} to="/">
               Logout
             </Button>
           </Toolbar>

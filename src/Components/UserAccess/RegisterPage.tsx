@@ -36,7 +36,7 @@ const RegisterPage: React.FC = () => {
       users.push({ username, password });
       localStorage.setItem('users', JSON.stringify(users));
       alert('Registration successful');
-      navigate('/login');
+      navigate('/');
     }
   };
 
@@ -106,7 +106,7 @@ const RegisterPage: React.FC = () => {
           <Box sx={{ marginTop: 2, textAlign: 'center' }}>
             <Typography variant="body2">
               Already registered?{' '}
-              <Link href="/login" sx={{ textDecoration: 'none', color: 'blue' }}>
+              <Link href="/" sx={{ textDecoration: 'none', color: 'blue' }}>
                 Login here
               </Link>
             </Typography>

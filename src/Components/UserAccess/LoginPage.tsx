@@ -11,8 +11,7 @@ interface LoginFormValues {
 }
 
 const LoginPage: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const navigate = useNavigate();
+   const navigate = useNavigate();
 
   const validationSchema = Yup.object({
     username: Yup.string()
@@ -34,8 +33,7 @@ const LoginPage: React.FC = () => {
     );
     if (user) {
       localStorage.setItem("isLoggedIn", "true");
-      setIsLoggedIn(true);
-      navigate("/dashBoard");
+       navigate("/dashBoard");
     } else {
       alert("Invalid username or password");
     }
@@ -45,7 +43,6 @@ const LoginPage: React.FC = () => {
     <Box
       sx={{
         minHeight: "100vh",
-       
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -121,7 +118,7 @@ const LoginPage: React.FC = () => {
           New User?{" "}
           <Typography
             component={Link}
-            to="/"
+            to="/register"
             sx={{ color: "blue", textDecoration: "none", cursor: "pointer" }}
           >
             Register
