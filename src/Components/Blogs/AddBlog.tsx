@@ -29,10 +29,22 @@ const AddBlog: React.FC<AddPostProps> = ({ posts, setPosts }) => {
     values: { title: string; content: string },
     { resetForm }: { resetForm: () => void }
   ) => {
-    const newPost: Post = { id: posts.length + 1, ...values };
-    const updatedPosts = [...posts, newPost];
+    // Always read posts from localStorage
+    const storedPosts: Post[] = JSON.parse(localStorage.getItem("posts") || "[]");
+  
+    // Get a unique ID
+    const currentId = parseInt(localStorage.getItem("postIdCounter") || "1", 10);
+  
+    const newPost: Post = { id: currentId, ...values };
+  
+    // Add the new post to the stored posts
+    const updatedPosts = [...storedPosts, newPost];
+  
+    // Save to localStorage and update state
+    localStorage.setItem("posts", JSON.stringify(updatedPosts));
+    localStorage.setItem("postIdCounter", (currentId + 1).toString());
     setPosts(updatedPosts);
-    localStorage.setItem("posts", JSON.stringify(updatedPosts)); // Save to localStorage
+  
     resetForm();
     navigate("/dashBoard");
   };

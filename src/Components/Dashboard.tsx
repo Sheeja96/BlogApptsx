@@ -40,14 +40,24 @@ const Dashboard: React.FC = () => {
     const storedPosts: Post[] = JSON.parse(localStorage.getItem("posts") || "[]");
     setUsers(storedUsers);
     setPosts(storedPosts);
+  
+    // Initialize the postIdCounter if it doesn't exist
+    if (!localStorage.getItem("postIdCounter")) {
+      const maxId = storedPosts.reduce((max, post) => Math.max(max, post.id), 0);
+      localStorage.setItem("postIdCounter", (maxId + 1).toString());
+    }
   }, []);
 
   // Handle post deletion
   const handleDelete = (id: number) => {
-    const updatedPosts = posts.filter((post) => post.id !== id);
-    setPosts(updatedPosts);
-    localStorage.setItem("posts", JSON.stringify(updatedPosts)); // Update localStorage
+    const confirmDelete = window.confirm("Are you sure you want to delete this post?");
+    if (confirmDelete) {
+      const updatedPosts = posts.filter((post) => post.id !== id);
+      setPosts(updatedPosts);
+      localStorage.setItem("posts", JSON.stringify(updatedPosts)); // Update localStorage
+    }
   };
+  
 
   return (
     <Box sx={{  minHeight: "100vh" }}>

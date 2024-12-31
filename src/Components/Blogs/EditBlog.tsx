@@ -32,11 +32,18 @@ const EditPost: React.FC<EditPostProps> = ({ posts, setPosts }) => {
 
   // Handle post update
   const handleUpdatePost = (values: { title: string; content: string }) => {
-    const updatedPosts = posts.map((p) =>
+    // Fetch the latest posts from localStorage
+    const storedPosts: Post[] = JSON.parse(localStorage.getItem("posts") || "[]");
+  
+    // Update the specific post
+    const updatedPosts = storedPosts.map((p) =>
       p.id === parseInt(id || "", 10) ? { ...p, ...values } : p
     );
+  
+    // Save the updated posts to localStorage and update state
+    localStorage.setItem("posts", JSON.stringify(updatedPosts));
     setPosts(updatedPosts);
-    localStorage.setItem("posts", JSON.stringify(updatedPosts)); // Update localStorage
+  
     navigate("/dashBoard");
   };
 
